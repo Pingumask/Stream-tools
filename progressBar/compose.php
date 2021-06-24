@@ -21,8 +21,10 @@
                 <option value="flat">flat</option>
             </select>
         </form>
-        <a href="">LIEN</a>
-        <iframe src='./' width="100%" height="10%"></iframe>
+        <a href="">Lien à copier pour l'intégration en tant que source web</a>
+        <hr/>
+        <h2>Prévisualisation</h2>
+        <iframe src='./' width="100%" height="80px"></iframe>
         <script>
             function generateLink(){
                 const BGCOLOR=document.querySelector("[name=bgcolor]").value.substring(1);

@@ -1,0 +1,46 @@
+/* Mise à zéro de toutes les marges internes et externes*/
+*{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+}
+
+/* Affichage plein écran du widget en vue de son integration en tant que source web dans streamlabs */
+body{
+    height:100vh;
+    width:100vw;
+    background-color:var(--bgColor);
+}
+
+/* Déclaration des images clef de mon animation */
+@keyframes load {
+    0% { width:0; }
+    100% { width: 100%; }
+}
+
+#progressbar{
+    background-color:var(--color);
+    height:100%;
+    animation-timing-function: linear; /* Progression linéaire de l'animation car on souhaite que la vitesse de remplissage soit stable */
+    animation-duration: var(--time); /* Durée de l'animation qui a été récupérée en secondes depuis l'url */
+    animation-name: load; /* Nom de l'animation qui a été déclarée par @keyframes */
+    /*  
+    *   Peut être déclaré en une seule instruction avec le raccourci :
+    *   animation: linear load var(--time);
+    */
+}
+
+/* Création d'un pseudo élément couvrant l'intégralité de la page pour l'application de styles suplémentaires */
+#progressbar::after{
+    display:block;
+    position:absolute;
+    top:0;
+    width:100%;
+    height:100%;
+}
+
+/* Ajout d'un dégradé transparent sur le pseudo-élément donnant une apparence "verre" */
+#progressbar.glass::after{
+    content:"";
+    background: linear-gradient(180deg, rgba(255,255,255,0) 5%, rgba(255,255,255,0.5) 15%, rgba(255,255,255,0) 35%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%); 
+}
