@@ -1,0 +1,70 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html, body{
+    min-height:100vh;
+    overflow:hidden
+}
+
+.vslide{
+    mask-image: linear-gradient(to bottom,#fff0, #ffff 5%, #ffff 95%, #fff0);
+}
+
+.hslide{
+    mask-image: linear-gradient(to right,rgba(0, 0, 0, 0), rgb(0, 0, 0) 5%, rgb(0, 0, 0) 95%, rgba(0, 0, 0, 0));
+}
+
+@font-face{
+    font-family:'kh';
+    src:url('./fonts/Kingdom_Hearts_Font.ttf');
+}
+
+div{
+    height:100%;
+    width:100%;
+    text-align:center;
+    font-size:40vh;
+    line-height:48vh;
+    color:var(--color);
+    position:absolute;
+    top:0;                       
+    opacity:0;       
+    transition: var(--transition);
+    font-family:var(--font), Tahoma, Geneva, Verdana, sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center; 
+}
+
+div.now{
+    top:0;
+    left:0;
+    opacity:1;  
+}
+
+div.previous{       
+    opacity:0;
+}
+
+.vslide div.previous{
+    top:-100%;
+}
+
+.hslide div.previous{
+    left:-100%;
+}
+
+div.next{
+    opacity:0;
+}
+
+.vslide div.next{
+    top:100%;
+}
+
+.hslide div.next{
+    left:100%;
+}
